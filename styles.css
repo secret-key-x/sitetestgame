@@ -1,0 +1,284 @@
+/* Загальні стилі */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.error {
+    padding: 20px;
+    color: #e74c3c;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    line-height: 1.6;
+    padding: 20px;
+    overflow-x: hidden;
+    background-size: 400% 400%;
+    animation: gradientAnimation 12s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Заголовки */
+h1, h2 {
+    margin-bottom: 15px;
+    font-family: 'Cinzel', serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: #9b59b6;
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+h2 {
+    font-size: 2.2em;
+    color: #f39c12;
+}
+
+/* Заголовок сторінки */
+header {
+    text-align: center;
+    padding: 60px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Основний контент */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Секції */
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+section h2 {
+    font-size: 1.8em;
+    color: #f39c12;
+}
+
+/* Форма входу */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+form input {
+    padding: 15px;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ecf0f1;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+form input:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: #9b59b6;
+    outline: none;
+}
+
+form button {
+    padding: 15px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+form button:hover {
+    background-color: #9b59b6;
+    transform: scale(1.05);
+}
+
+form button:active {
+    transform: scale(0.98);
+}
+
+/* Кнопки для "Тиць" та "Зареєструватися" */
+section a button,
+button#generate-random {
+    padding: 15px;
+    background-color: #16a085;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+section a button:hover,
+button#generate-random:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+section a button:active,
+button#generate-random:active {
+    transform: scale(0.98);
+}
+
+/* Рандомні числа */
+#random-number {
+    font-weight: bold;
+    font-size: 2.5em;
+    color: #e74c3c;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #bdc3c7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 0;
+}
+
+/* Плавні анімації */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 10px #9b59b6, 0 0 20px #9b59b6;
+    }
+}
+
+/* Стилі для башти з 1000 поверхами */
+.b tower-description {
+    font-family: 'Cinzel', serif;
+    color: #ecf0f1;
+    font-size: 1.1em;
+    line-height: 1.8;
+    text-align: justify;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9);
+}
+
+.b tower-description h1 {
+    font-size: 3.5em;
+    color: #f39c12;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.b tower-description p {
+    margin-bottom: 15px;
+}
+
+/* Адаптивні стилі */
+@media (max-width: 768px) {
+    main {
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 2.8em;
+    }
+
+    section h2 {
+        font-size: 1.6em;
+    }
+
+    form input, form button {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    form input, form button {
+        font-size: 0.9em;
+    }
+
+    section h2 {
+        font-size: 1.3em;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
+
+.flash-messages {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.flash {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+
+/* .flash.danger {
+    background-color: #ffcccc;
+    color: #990000;
+} */

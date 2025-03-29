@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Таємничий портал – Вхід</title>
+    <style>
+        @keyframes fadeInOut {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        #random-number {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 2.5em;
+            color: #e74c3c;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Привіт, математику</h1>
+        <p>Чи зможеш ти розгадати загадку та відкрити двері до таємниці?</p>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}"><h3 class="error">{{ message }}</h3></div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <section>
+            <h2>Вітаємо у світі загадок</h2>
+        </section>
+
+        <section>
+            <h2>Вхід у систему</h2>
+            <form action="/login" method="POST">
+                <label for="first_name">Ім'я:</label>
+                <input type="text" id="first_name" name="first_name" required placeholder="Введіть ім'я">
+                <br>
+                <label for="last_name">Прізвище:</label>
+                <input type="text" id="last_name" name="last_name" required placeholder="Введіть прізвище">
+                <br>
+                <button type="submit">Увійти</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Реєстрація</h2>
+            <p>Бажаєте створити новий акаунт?</p>
+            <a href="/register"><button>Зареєструватися</button></a>
+        </section>
+
+        <section>
+            <p><strong>Опубліковано:</strong> в березні</p>
+            <p><strong>Рандомне число:</strong> <span id="random-number">-:-</span></p>
+            <button id="generate-random" onclick="generateRandom()">Тиць</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Таємничий портал. Всі права захищені.</p>
+    </footer>
+
+    <script>
+        function generateRandom() {
+            let randomNumberElement = document.getElementById("random-number");
+    
+            randomNumberElement.style.animation = "none";
+            void randomNumberElement.offsetWidth; // Трюк для перезапуску анімації
+            randomNumberElement.style.animation = "fadeInOut 0.6s ease-in-out";
+    
+            fetch("/random-number")
+                .then(response => response.json())
+                .then(data => {
+                    setTimeout(() => {
+                        randomNumberElement.textContent = data.random_number;
+                    }, 300);
+                })
+                .catch(error => console.error("Помилка отримання числа:", error));
+        }
+    </script>
+</body>
+</html>
+
+

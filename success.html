@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Башта 1000 поверхів</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Башта з 1000 поверхами</h1>
+        <p>Таємничий світ, де гоблін шукає свій шлях...</p>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Загадка</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
+                Vestibulum volutpat eros sed turpis aliquam, nec volutpat sapien pretium.  
+                Integer tristique arcu eget orci elementum, et sagittis justo aliquet.
+            </p>
+        </section>
+
+        <section>
+            <h2>Введіть слово</h2>
+            <form action="{{ url_for('success') }}" method="POST">
+                <label for="wordInput">Введіть ваше слово:</label>
+                <input type="text" id="wordInput" name="wordInput" placeholder="Введіть слово тут" required>
+                <button type="submit">Відправити</button>
+            </form>
+        </section>
+    
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Таємничий портал. Всі права захищені.</p>
+    </footer>
+
+</body>
+</html>
+
