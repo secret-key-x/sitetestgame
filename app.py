@@ -50,7 +50,7 @@ def temporary_end():
 # API для генерації випадкового числа
 @app.route('/random-number')
 def get_random_number():
-    numbers = [30] * 7 + [13, 42, 7, 100, 56]  # 30 випадає частіше
+    numbers = [30] * 15 + [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]  # 30 випадає частіше
     return jsonify({'random_number': random.choice(numbers)})
 
 if __name__ == '__main__':
