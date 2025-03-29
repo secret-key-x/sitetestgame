@@ -23,7 +23,7 @@ def register():
 def success():
     if request.method == 'POST':
         word = request.form.get('wordInput', '').strip().lower()
-        if word == 'cafe':
+        if word == 'chef':
             return redirect(url_for('temporary_end'))  # Перенаправлення на temporary_end.html
     
     return render_template('success.html')
