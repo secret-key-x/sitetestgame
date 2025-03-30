@@ -13,7 +13,7 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        flash('Це не для вас, забирайтесь...', 'danger')
+        flash('Реєстарція лише для математиків', 'danger')
         return redirect(url_for('register'))
     
     return render_template('register.html')
@@ -55,6 +55,8 @@ def get_random_number():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 
 
 
