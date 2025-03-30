@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <title>Башта 1000 поверхів</title>
+    <title>Таємнича башня</title>
 </head>
 <body>
     
     <header>
-        <h1>Башта з 1000 поверхами</h1>
-        <p>Таємничий світ, де гоблін шукає свій шлях...</p>
+        <h1>Легенда про крилатого гобліна</h1>
     </header>
     
     <main>
         <section>
-            <h2>Загадка</h2>
+            <h2>Таємничий світ, де гоблін шукає свій шлях...</h2>
             <p>
                 Колись, у далеких землях, жив собі один гоблін. Він мав могутні крила, що несли його крізь хмари, та сяючий алмаз, що завжди був при ньому. Жив він без хвороб, ніби сама доля берегла його. <br> <br>
 
@@ -32,8 +31,8 @@
         <section>
             <h2>Введіть слово</h2>
             <form action="{{ url_for('success') }}" method="POST">
-                <label for="wordInput">Введіть ваше слово:</label>
-                <input type="text" id="wordInput" name="wordInput" placeholder="Введіть слово тут" required>
+                <!-- <label for="wordInput">Введіть ваше слово:</label> -->
+                <input type="text" id="wordInput" name="wordInput" required>
                 <button type="submit">Відправити</button>
             </form>
         </section>
@@ -46,3 +45,4 @@
 
 </body>
 </html>
+
