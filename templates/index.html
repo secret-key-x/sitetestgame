@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <title>Таємничий портал – Вхід</title>
     <style>
+       .error {
+            padding: 20px;
+            color: #e74c3c;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
         @keyframes fadeInOut {
             0% { opacity: 1; transform: scale(1); }
             50% { opacity: 0; transform: scale(1.2); }
@@ -23,8 +33,7 @@
 </head>
 <body>
     <header>
-        <h1>Привіт, математику</h1>
-        <p>Чи зможеш ти розгадати загадку та відкрити двері до таємниці?</p>
+        <h1>Mystery room</h1>
     </header>
 
     <main>
@@ -39,7 +48,7 @@
         {% endwith %}
 
         <section>
-            <h2>Вітаємо у світі загадок</h2>
+            <h2>Чи зможеш ти розгадати загадку та відкрити двері до таємниці?</h2>
         </section>
 
         <section>
@@ -92,5 +101,4 @@
     </script>
 </body>
 </html>
-
 
