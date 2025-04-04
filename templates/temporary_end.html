@@ -3,20 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кінець</title>
+    <title>Music</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
-        <h1>Ви розгадали!</h1>
+        <h1>Таємна серенада</h1>
     </header>
     
     <main>
-        <p>Очікуйте наступну загадку...</p>
+        <!-- Аудіоплеєр -->
+        <section class="audio-section">
+            <h2>🎵 Музична пауза</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/sound.mp3') }}" type="audio/flac">
+                Ваш браузер не підтримує аудіо.
+            </audio>
+
+            <!-- Кнопка для завантаження -->
+            <p><a href="{{ url_for('static', filename='audio/sound.mp3') }}" download class="download-btn">⬇️ Завантажити Mp3</a></p>
+            <p class="hint-text">🔍 Підказка: орієнтуйся на вежу та кімнати.</p>
+        </section>
+
+        <!-- Поле вводу відповіді -->
+        <section class="answer-section">
+            <form action="{{ url_for('temporary_end') }}" method="POST">
+                <!-- <label for="wordInput">Введіть ваше слово:</label> -->
+                <input type="text" id="wordInput" name="wordInput" required>
+                <button type="submit">Відправити</button>
+            </form>
+        </section>
     </main>
+
 
     <footer>
         <p>&copy; 2025 Таємничий портал. Всі права захищені.</p>
     </footer>
+
+    <style>
+        /* Центруємо секцію */
+        .audio-section {
+            text-align: center;
+        }
+
+        /* Аудіоплеєр */
+        audio {
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            margin: 20px auto;
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.5));
+            border-radius: 10px;
+        }
+
+        /* Кастомізація аудіо-контролів */
+        audio::-webkit-media-controls-panel {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            border-radius: 10px;
+        }
+
+        audio::-webkit-media-controls-play-button {
+            background-color: #f39c12;
+            border-radius: 50%;
+        }
+
+        audio::-webkit-media-controls-timeline {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Кнопка завантаження */
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 20px;
+            background-color: #2ecc71;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .download-btn:hover {
+            background-color: #27ae60;
+            transform: scale(1.05);
+        }
+
+        .download-btn:active {
+            transform: scale(0.95);
+        }
+
+        .hint-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
+    </style>
 </body>
 </html>
+
