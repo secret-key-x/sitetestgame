@@ -35,7 +35,7 @@ def login():
     last_name = request.form.get('last_name', '').strip().lower()
     
     # Перевіряємо ім'я та прізвище (без врахування регістру)
-    if first_name == "степан" or first_name == "стефан" and last_name == "банах":
+    if first_name == "степан" and last_name == "банах":
         return redirect(url_for('success'))
     
     # Якщо неправильні дані – флеш-повідомлення
@@ -43,9 +43,9 @@ def login():
     return redirect(url_for('index'))
 
 # Сторінка "temporary_end"
-@app.route('/temporary_end')
-def temporary_end():
-    return render_template('temporary_end.html')
+# @app.route('/temporary_end')
+# def temporary_end():
+#     return render_template('temporary_end.html')
 
 # API для генерації випадкового числа
 @app.route('/random-number')
@@ -53,8 +53,19 @@ def get_random_number():
     numbers = [30] * 15 + [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]  # 30 випадає частіше
     return jsonify({'random_number': random.choice(numbers)})
 
+@app.route('/temporary_end', methods=['GET', 'POST'])
+def temporary_end():
+    if request.method == 'POST':
+        word = request.form.get('wordInput', '').strip().lower()
+        if word == 'love':  
+            return "gay"  # Перенаправлення на нову сторінку
+        
+    return render_template('temporary_end.html')
+    
+
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
 
