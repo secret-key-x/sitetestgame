@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coffe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .image-section img {
+            width: 50%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>english sentence...?</h1>
+    </header>
+
+    <main>
+        <!-- Зображення -->
+        <section class="image-section">
+            {% for i in range(1, 8) %}
+                <img src="{{ url_for('static', filename='images/' ~ i ~ '.png') }}" alt="Фрагмент {{ i }}">
+            {% endfor %}
+        </section>
+
+        <!-- Поле вводу відповіді -->
+        <section class="answer-section">
+            <form action="{{ url_for('coffe') }}" method="POST">
+                <input type="text" id="wordInput" name="wordInput" placeholder="Введіть відповідь..." required>
+                <button type="submit">Відправити</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Кавовий портал. Всі права захищені.</p>
+    </footer>
+</body>
+</html>
+
