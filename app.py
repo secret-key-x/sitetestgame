@@ -58,14 +58,22 @@ def temporary_end():
     if request.method == 'POST':
         word = request.form.get('wordInput', '').strip().lower()
         if word == 'love':  
-            return "gay"  # Перенаправлення на нову сторінку
+            return redirect(url_for('coffe'))  # Перенаправлення на нову сторінку
         
     return render_template('temporary_end.html')
     
 
+@app.route('/coffe', methods=['GET', 'POST'])
+def coffe():
+    if request.method == 'POST':
+        word = request.form.get('wordInput', '').strip().lower()
+        if word == 'we are nearly at the end now':  
+            return "Вітаю! ви розгадали, очікуйте нової загадки :("  # Перенаправлення на нову сторінку
+        
+    return render_template('coffe.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
-
 
 
 
