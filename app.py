@@ -37,6 +37,8 @@ def login():
     # Перевіряємо ім'я та прізвище (без врахування регістру)
     if first_name == "степан" and last_name == "банах":
         return redirect(url_for('success'))
+    if first_name == "стефан" and last_name == "банах":
+        return redirect(url_for('success'))
     
     # Якщо неправильні дані – флеш-повідомлення
     flash('Невідома особа', 'danger')
