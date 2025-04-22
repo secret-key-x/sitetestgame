@@ -42,7 +42,7 @@ def login():
     
     # Якщо неправильні дані – флеш-повідомлення
     flash('Невідома особа', 'danger')
-    return redirect(url_for('index.html'))
+    return redirect(url_for('index'))
 
 # Сторінка "temporary_end"
 # @app.route('/temporary_end')
