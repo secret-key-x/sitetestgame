@@ -35,11 +35,11 @@ def login():
     last_name = request.form.get('last_name', '').strip().lower()
     
     # Перевіряємо ім'я та прізвище (без врахування регістру)
-    if first_name == "степан" and last_name == "банах":
+    if first_name == "степан" or fisrt_name = "стефан" and last_name == "банах":
         return redirect(url_for('success'))
     
     # Якщо неправильні дані – флеш-повідомлення
-    flash('Невідома соба', 'danger')
+    flash('Невідома особа', 'danger')
     return redirect(url_for('index'))
 
 # Сторінка "temporary_end"
