@@ -68,7 +68,7 @@ def coffe():
     if request.method == 'POST':
         word = request.form.get('wordInput', '').strip().lower()
         if word == 'we are nearly at the end now':  
-            return "Вітаю! ви розгадали, очікуйте нової загадки :("  # Перенаправлення на нову сторінку
+            return "Вітаю! ви розгадали, напишіть @Azalonn (тг юзер) -> 'ікс рфиш'<- [не хватило бюджету на останню веб сторінку]"  # Перенаправлення на нову сторінку
         
     return render_template('coffe.html')
 
